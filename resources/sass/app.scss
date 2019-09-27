@@ -1,0 +1,28 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.index-header-img {
+	background-image: url('/images/index-header.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.index-header-logo {
+	width: 200px;
+	height: 200px;
+}
+
+.index-second-header-img {
+	background-image: url('/images/index-second-header.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 250px;
+}
