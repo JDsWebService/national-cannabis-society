@@ -19,3 +19,6 @@ Route::middleware(['verified', 'auth'])->group(function() {
 	Route::get('/user/dashboard', 'User\UsersController@dashboard')->name('user.dashboard');
 });
 
+Route::get('/admin', function() {
+	return view('admin.dashboard');
+});

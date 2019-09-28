@@ -1,0 +1,1 @@
+Copyright &copy; National Cannabis Society LLC 2019

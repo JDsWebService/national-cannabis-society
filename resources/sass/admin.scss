@@ -1,0 +1,20 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'admin/variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Font Awesome
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+// Import Custom SCSS
+@import "admin/mixins.scss";
+@import "admin/global.scss";
+@import "admin/utilities.scss";
+@import "admin/navbar.scss";
+@import "admin/cards.scss";
+@import "admin/login.scss";
+@import "admin/footer.scss";
