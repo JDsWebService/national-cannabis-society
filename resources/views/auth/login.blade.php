@@ -44,6 +44,8 @@
                                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
                                 <div class="text-center">
                                     <a class="small" href="{{ route('password.request') }}">Forgot password?</a>
+                                    <br>
+                                    <a class="small" href="{{ route('index') }}">Go Back</a>
                                 </div>
                             {{ Form::close() }}
                         </div>
@@ -69,7 +71,7 @@
         }
 
         .bg-image {
-          background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
+          background-image: url('https://source.unsplash.com/PGc9Vid8O24/600x1200');
           background-size: cover;
           background-position: center;
         }

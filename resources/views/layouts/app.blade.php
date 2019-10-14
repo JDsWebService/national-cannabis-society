@@ -19,16 +19,14 @@
         
         @include('partials.navbar.app')
 
+        @component('components.who')
+        @endcomponent
+
         @if(\Request::route()->getName() === 'index')
             <main class="pb-4">
         @else
             <main class="py-4">
         @endif
-        
-            <div class="panel-body">
-                @component('components.who')
-                @endcomponent
-            </div>
             
             @yield('content')
         </main>

@@ -18,6 +18,9 @@
 
         @include('partials.admin.navbar')
 
+        @component('components.who')
+        @endcomponent
+
         <div id="wrapper">
 
             @include('partials.admin.sidebar')
