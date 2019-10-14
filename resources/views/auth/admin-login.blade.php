@@ -9,8 +9,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
-                            <h3 class="login-heading mb-4">Welcome back!</h3>
-                            {{ Form::open(['route' => 'login', 'method' => 'POST'])}}
+                            <h3 class="login-heading mb-4">Welcome back Admin!</h3>
+                            {{ Form::open(['route' => 'admin.login.submit', 'method' => 'POST'])}}
 
                                 {{-- eMail Field --}}
                                 <div class="form-label-group">
@@ -43,7 +43,7 @@
                                 {{-- Sign In Button --}}
                                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
                                 <div class="text-center">
-                                    <a class="small" href="{{ route('password.request') }}">Forgot password?</a>
+                                    <a class="small" href="{{ route('admin.password.request') }}">Forgot password?</a>
                                 </div>
                             {{ Form::close() }}
                         </div>

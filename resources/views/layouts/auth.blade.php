@@ -16,24 +16,8 @@
 </head>
 <body>
     <div id="app">
-        
-        @include('partials.navbar.app')
 
-        @if(\Request::route()->getName() === 'index')
-            <main class="pb-4">
-        @else
-            <main class="py-4">
-        @endif
-        
-            <div class="panel-body">
-                @component('components.who')
-                @endcomponent
-            </div>
-            
-            @yield('content')
-        </main>
-
-        @include('partials.global.footer')
+        @yield('content')
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
