@@ -33,17 +33,32 @@ Route::get('email/verify', 'Auth\VerificationController@show')->name('verificati
 Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
-Route::prefix('admin')->group(function() {
-	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/', 'Admin\PagesController@dashboard')->name('admin.dashboard');
-    Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+Route::prefix('admin')->name('admin.')->group(function() {
+	// Admin Blog Routes
+	Route::prefix('blog')->name('blog.')->group(function() {
+		
+		// Categories
+		Route::prefix('categories')->name('categories.')->group(function() {
+			Route::get('create', 'Blog\Admin\CategoriesController@create')->name('create');
+			Route::post('store', 'Blog\Admin\CategoriesController@store')->name('store');
+		}); // End Categories routes
+
+
+	}); // End Admin Blog Routes
+
+	// Admin Login routes
+	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('login.submit');
+    Route::get('/logout', 'Auth\AdminLoginController@logout')->name('logout');
 
     // Password reset routes
-	Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-	Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+	Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('password.email');
+	Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('password.request');
 	Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
-	Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+	Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('password.reset');
+
+	// Admin Dashboard
+	Route::get('/', 'Admin\PagesController@dashboard')->name('dashboard');
 });
 
 Route::middleware(['verified', 'auth'])->group(function() {
