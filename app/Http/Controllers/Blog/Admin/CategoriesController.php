@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use Mews\Purifier\Facades\Purifier;
 
 class CategoriesController extends Controller
@@ -39,11 +40,12 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|string|max:255'
+            'name' => 'required|string|max:150'
         ]);
 
         $category = new Category;
         $category->name = Purifier::clean($request->name);
+        $category->slug = Str::slug($request->name);
         $category->save();
 
         Session::flash('success', 'Category has been save successfully');
